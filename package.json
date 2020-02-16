@@ -2,7 +2,7 @@
   "name": "dev.to",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR-USERNAME/YOUR-REPO.git"
+    "url": "https://github.com/marioarranzr/dev.to.git"
   },
   "scripts": {
     "prettier": "prettier",
@@ -15,8 +15,11 @@
     "dev-to-git": "dev-to-git"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "dev-to-git": "1.1.0",
     "embedme": "1.11.0",
-    "prettier": "1.18.2"
+    "fs-extra": "^8.1.0",
+    "prettier": "1.18.2",
+    "yarn": "^1.21.1"
   }
 }

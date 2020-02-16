@@ -1,4 +1,29 @@
-# One way publishing of your blog posts from a git repo to dev.to
+[![Build Status](https://travis-ci.org/marioarranzr/dev.to.svg?branch=master)](https://travis-ci.org/marioarranzr/dev.to)
+
+# How to publish a new post
+
+## Create draft dev.to article
+
+Configure you own `config.json`
+
+```json
+{
+  "apiKey": [DEV_TO_API_KEY],
+  "templateFolder": "template-post",
+  "targetFolder": [YOUR_ABS_PATH_TO_FOLDER_POSTS] // e.g. "Users/mario/dev/dev.to/blog-posts"
+}
+```
+
+Run 
+```
+./tools/create-post.js "Hello world is my new post"
+```
+
+Modify the generated files and once it is merged to `master` branch, it will be pusbished to [dev.to](https://dev.to)
+
+> Thanks to [ramclen](https://github.com/ramclen/documenting-dev) for his `create-post.js` script and [maxime1992](https://github.com/maxime1992/dev.to) for the template
+
+------
 
 ## First, what is dev.to?
 
@@ -26,7 +51,7 @@ There's a `dev-to-git.json` file where you can define an array of blog posts, e.
 [
   {
     "id": 12345,
-    "relativePathToArticle": "./blog-posts/name-of-your-blog-post/name-of-your-blog-post.md"
+    "relativePathToArticle": "./blog-posts/template-post/template-post.md"
   }
 ]
 ```
@@ -55,15 +80,3 @@ If you want to use Github and Travis, a `.travis.yml` file has been already prep
 First, you have to activate the repository on Travis: https://travis-ci.org/account/repositories
 
 Then, you have to create a token on your dev.to account: https://dev.to/settings/account and set an environment variable on Travis called `DEV_TO_GIT_TOKEN` that will have the newly created token as value.
-
-## README template
-
-The following is simply a template that you may want to use for your own version of that repository.
-
-# \<YOUR NAME\>'s blog source
-
-https://dev.to/\<YOUR DEV.TO NICKNAME\>
-
-## Blog posts
-
-- [\<BLOG POST NAME\>](https://dev.to/\<BLOG POST LINK\>)
