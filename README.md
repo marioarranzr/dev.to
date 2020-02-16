@@ -14,7 +14,8 @@ Configure you own `config.json`
 }
 ```
 
-Run 
+Run
+
 ```
 ./tools/create-post.js "Hello world is my new post"
 ```
@@ -23,7 +24,7 @@ Modify the generated files and once it is merged to `master` branch, it will be 
 
 > Thanks to [ramclen](https://github.com/ramclen/documenting-dev) for his `create-post.js` script and [maxime1992](https://github.com/maxime1992/dev.to) for the template
 
-------
+---
 
 ## First, what is dev.to?
 
