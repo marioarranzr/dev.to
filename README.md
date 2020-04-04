@@ -4,13 +4,13 @@
 
 ## Create draft dev.to article
 
-Configure you own `config.json`
+Configure you own `config.json` and put it in tools folder:
 
 ```json
 {
   "apiKey": [DEV_TO_API_KEY],
   "templateFolder": "template-post",
-  "targetFolder": [YOUR_ABS_PATH_TO_FOLDER_POSTS] // e.g. "Users/mario/dev/dev.to/blog-posts"
+  "targetFolder": [YOUR_PATH_TO_FOLDER_POSTS] // e.g. "Users/mario/dev/dev.to/blog-posts" or "./blog-posts"
 }
 ```
 
