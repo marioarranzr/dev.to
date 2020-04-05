@@ -110,20 +110,20 @@ The result of the code abobe is:
 
 ```text
 count:	Value = 10 	Addr = 0x41a788
--- incrementByValue(count) --
+----- incrementByValue(count) -----
 inc:	Value = 11 	Addr = 0x41a784
-----------------------
+----------------------------------
 count:	Value = 10 	Addr = 0x41a788
--- incrementByPointer(&count) --
+--- incrementByPointer(&count) ---
 inc:	Value = 11 	Addr = 0x41a788
-----------------------
+----------------------------------
 count:	Value = 11 	Addr = 0x41a788
 ```
 
 The `count` variable is stored in the address **0x41a788**. Its value is passed to `incrementByValue` function, who stores the incremented value in anther address 0x41a784. If this function wanted to inform of this new value it would be necessary to return it.
 On the other hand, `count` address is passed to `incrementByPointer` funtion, who uses the same address **0x41a788**. The result is that the original `count` variable is modified.
 
-[Playground](https://play.golang.com/p/KM1Rod_sVFd)
+[Playground](https://play.golang.com/p/q0rBOyxnUDQ)
 
 ---
 
