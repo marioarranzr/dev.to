@@ -77,7 +77,7 @@ u := &user{
 
 This code shows the difference between sharing a variable (pointer to it) and sharing just its value:
 
-```
+```go
 count := 10
 
 println("count:\tValue =", count, "\tAddr =", &count)
@@ -99,7 +99,7 @@ println("count:\tValue =", count, "\tAddr =", &count)
 
 Both ways of incrementing a variable:
 
-```
+```go
 func incrementByValue(inc int) {
 	inc++
 	println("inc:\tValue =", inc, "\tAddr =", &inc)
