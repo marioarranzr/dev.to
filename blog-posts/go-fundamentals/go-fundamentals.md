@@ -123,6 +123,8 @@ count:	Value = 11 	Addr = 0x41a788
 The `count` variable is stored in the address **0x41a788**. Its value is passed to `incrementByValue` function, who stores the incremented value in anther address 0x41a784. If this function wanted to inform of this new value it would be necessary to return it.
 On the other hand, `count` address is passed to `incrementByPointer` funtion, who uses the same address **0x41a788**. The result is that the original `count` variable is modified.
 
+![Stack memory](https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/go-fundamentals/assets/value-vs-pointer.png)
+
 [Playground](https://play.golang.com/p/q0rBOyxnUDQ)
 
 ---
