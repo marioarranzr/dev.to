@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: 'Go fundamentals'
 cover_image: 'https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/go-fundamentals/assets/your-asset.png'
 description:
