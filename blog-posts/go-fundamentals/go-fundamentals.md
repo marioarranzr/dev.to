@@ -39,25 +39,91 @@ When an application starts and calls `main()`, every line of code could:
 
 Bugs are (almost) always in writting memory. Every problem we solve is data transformation issue.
 
-# Value semantics vs pointer semantics:
+## Value semantics vs pointer semantics:
+
+### Initialising variables:
 
 In Go there are many ways to initialise a variable:
 
 ```go
-var count int // use this way to initialise a variable, for 0-value
-count := 10   // use this way for non 0-value
+// BASIC TYPES
+var count int // use this way for zero-value initialisation
+count := 10   // use this way for non zero-value initialisation
 count := 0    // NOT a good practise
 
+// DEFINED TYPES
+// use this way for zero-value initialisation
+var u user
+
+// use this way for non zero-value initialisation
+// value semantic construction - GOOD practise
 u := user{
     age: 10,
 }
+
+// pointer semantic construction - NOT a good practise
+// more indicative, using the previous value semantic way
+// and use '&' as many places as is needed
 u := &user{
     age: 10,
 }
 ```
-[Playground](https://play.golang.org/p/CGPNOtdDWp0)
+[Playground](https://play.golang.org/p/-f9PCB8Y9z6)
 
+### Functions:
 
+This code shows the difference between sharing a variable (pointer to it) and sharing just its value:
+```
+count := 10
+
+println("count:\tValue =", count, "\tAddr =", &count)
+
+println("-- incrementByValue(count) --")
+// Pass the "value" of the variable.
+incrementByValue(count)
+println("----------------------")
+
+println("count:\tValue =", count, "\tAddr =", &count)
+
+println("-- incrementByPointer(count) --")
+// Pass the "address" the variable.
+incrementByPointer(&count)
+println("----------------------")
+
+println("count:\tValue =", count, "\tAddr =", &count)
+```
+
+Both ways of incrementing a variable:
+```
+func incrementByValue(inc int) {
+	inc++
+	println("inc:\tValue =", inc, "\tAddr =", &inc)
+}
+
+func incrementByPointer(inc *int) {
+	*inc++
+	println("inc:\tValue =", inc, "\tAddr =", &inc)
+}
+```
+
+The result of the code abobe is:
+
+```text
+count:	Value = 10 	Addr = 0x41a788
+-- incrementByValue(count) --
+inc:	Value = 11 	Addr = 0x41a784
+----------------------
+count:	Value = 10 	Addr = 0x41a788
+-- incrementByPointer(&count) --
+inc:	Value = 11 	Addr = 0x41a788
+----------------------
+count:	Value = 11 	Addr = 0x41a788
+```
+
+The `count` variable is stored in the address **0x41a788**. Its value is passed to `incrementByValue` function, who stores the incremented value in anther address 0x41a784. If this function wanted to inform of this new value it would be necessary to return it.
+On the other hand, `count` address is passed to `incrementByPointer` funtion, who uses the same address **0x41a788**. The result is that the original `count` variable is modified.
+
+[Playground](https://play.golang.com/p/KM1Rod_sVFd)
 
 ---
 
