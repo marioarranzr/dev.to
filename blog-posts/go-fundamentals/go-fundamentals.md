@@ -8,7 +8,7 @@ series:
 canonical_url:
 ---
 
-If you are new to [Go](https://golang.org/) or, like me, you started some time ago but for some reason you missed fundamentals, this post could be useful to answer why things work a certain way. I recently attended [Go Ultimate course](https://www.ardanlabs.com/ultimate-go) imparted by [Bill Kennedy](https://twitter.com/goinggodotnet) so I will explain here what did I learn.
+If you are new to [Go](https://golang.org/) or, like me, you started some time ago but for some reason you missed fundamentals, this post could be useful to answer why things work a certain way. I recently attended the [Go Ultimate course](https://www.ardanlabs.com/ultimate-go) imparted by [Bill Kennedy](https://twitter.com/goinggodotnet) so I will explain here what I learnt.
 
 I have been coding in Go for the last 2 years now, so I could be wrong. I would be really happy if you could ping me in case you consider there is a mistake.
 
@@ -16,7 +16,7 @@ I have been coding in Go for the last 2 years now, so I could be wrong. I would 
 
 Go is a statically typed, compiled, data-oriented programming language that doesn't use a virtual machine, such as is provided by the Java runtime. Go programs are compiled ahead of time to native machine code. It works on top of the hardware and it was built getting the best of other languages.
 
-The simplicity of language often helps us or other developers in the future to make more efficient code. So **_don't make code easy to do, make it easy to understand._**
+The simplicity of language often helps us, or other developers in the future, to make more efficient code. So, **_don't make code easy to do, make it easy to understand._**
 
 ## Low level
 
@@ -24,16 +24,18 @@ To understand how to write better code, it is important to know that the softwar
 
 1. External latency (milliseconds).
 2. Internal latency (garbage collection, sync, and orchestration) (reducing it can improve +20%, microseconds)
-   As we saw on what its a middleware and where it is, it is a piece of code between actions and reducers.
 3. Algorithm efficiency.
 
-Processors: On intel machines with **Hiperthread** (Intel’s name for simultaneous multithreading), that means it doubles the number of processors available (i.e. dual-core hyper-threaded CPU have 4 processors, quad-core non-HT CPU has 4 processors. Quad-core option is the better choice, though, because it has more physical processing hardware).
-We could always check the number of processors available with `runtime.NumCPU()`
-Keep in mind the [Playground](https://play.golang.org/) is a single processor machine.
+### Number of processors available
+
+On intel machines with **Hiperthread** (Intel’s name for simultaneous multithreading), the number of processors available is doubled (i.e. dual-core hyper-threaded CPU have 4 processors, quad-core non-HT CPU has 4 processors. Quad-core option is the better choice, though, because it has more physical processing hardware).
+We could always check the number of processors available with `runtime.NumCPU()`. Keep in mind the [Playground](https://play.golang.org/) is a single processor machine.
+
+### Go routine size vs stack size
 
 ![Stack memory](./assets/stack.png)
 
-When an application starts and calls `main()`, every line of code could:
+When an application starts and calls `main()`, every line of code can:
 
 1. Allocate memory
 2. Read memory
@@ -111,7 +113,7 @@ func incrementByPointer(inc *int) {
 }
 ```
 
-The result of the code abobe is:
+The result of the code above is:
 
 ```text
 count:	Value = 10 	Addr = 0x41a788
@@ -125,8 +127,8 @@ inc:	Value = 11 	Addr = 0x41a788
 count:	Value = 11 	Addr = 0x41a788
 ```
 
-The `count` variable is stored in the address **0x41a788**. Its value is passed to `incrementByValue` function, who stores the incremented value in anther address 0x41a784. If this function wanted to inform of this new value it would be necessary to return it.
-On the other hand, `count` address is passed to `incrementByPointer` function, who uses the same address **0x41a788**. The result is that the original `count` variable is modified.
+The `count` variable is stored in the address **0x41a788**. Its value is passed to `incrementByValue` function, who stores the incremented value in another address, 0x41a784. If this function wanted to inform of its new value it would be necessary to return it.
+On the other hand, `count` address is passed to `incrementByPointer` function, who uses the same address, **0x41a788**. The result is that the original `count` variable is modified.
 
 ![Pass by value vs pass by pointer](./assets/value-vs-pointer.png)
 
