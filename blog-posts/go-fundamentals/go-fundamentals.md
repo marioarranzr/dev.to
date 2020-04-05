@@ -1,7 +1,7 @@
 ---
 published: true
 title: 'Go fundamentals'
-cover_image: 'https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/go-fundamentals/assets/your-asset.png'
+cover_image: 'https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/go-fundamentals/assets/go-logo.png'
 description:
 tags: go, fundamentals
 series:
