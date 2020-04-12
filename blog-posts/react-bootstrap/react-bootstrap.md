@@ -1,8 +1,8 @@
 ---
-published: false
+published: true
 title: 'Getting started with React Bootstrap'
 cover_image: 'https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/react-bootstrap/assets/react-bootstrap.png'
-description: 'Description of the article'
+description: 'Building a simple app using React Bootstrap'
 tags: react, bootstrap, react-bootstrap, create-react-app
 series:
 canonical_url:
