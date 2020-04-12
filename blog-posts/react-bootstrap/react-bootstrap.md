@@ -24,7 +24,7 @@ mkdir react-bootstrap
 cd react-bootstrap
 ```
 
-Create the scaffolding in directory:
+Create the scaffolding in the directory:
 
 ```
 create-react-app .
@@ -40,27 +40,27 @@ yarn start
 
 ## Adding some styles
 
-Bootstrap is the most popular CSS Framework for developing responsive and mobile-first websites and there is a react version that we can install:
+Bootstrap is the most popular CSS Framework for developing responsive and mobile-first websites, and there is a version for react that we can install:
 
 ```
 yarn add react-bootstrap bootstrap
 ```
 
-Finally we need to set it in `src/index.js` simply adding an extra import:
+Finally, we need to set it in `src/index.js` by simply adding an extra import:
 
 ```js
 import 'bootstrap/dist/css/bootstrap.css'
 ```
 
-Now, when loading the website (run `yarn start` in case you stopped it), we will see some diferent colors caused by bootstrap.
+Now, when loading the website (run `yarn start` in case you stopped it), we will see some diferent colours changed by bootstrap.
 
 ## Try it out
 
-After configuring out react app to use bootstrap, the next thing we can do is taking advantage of its simplicity for creating a beautiful UI without being a CSS expert.
+After configuring the react app to use bootstrap, the next thing we can do is taking advantage of its simplicity for creating a beautiful UI without being a CSS expert.
 
-But in orther to do that, we need fetching some data to show.
+But in order to do that, first we need fetching some data to show.
 
-As we saw in `src/index.js`
+As we saw in `src/index.js`,
 
 ```js
 ReactDOM.render(
@@ -71,9 +71,9 @@ ReactDOM.render(
 )
 ```
 
-the website is default configured to load the `App` component. So, in this case, that is going the component to modify.
+the website is default configured to load the `App` component. So, in this case, this is going to be the component to modify.
 
-So far, this `App.js` is using a _functional component_, a component which doesn’t have its own state or needs to access a lifecycle hook
+So far, this `App.js` is using a _functional component_, a component which doesn’t have its own state or needs to access a lifecycle hook.
 
 ```js
 function App() {
@@ -83,7 +83,7 @@ function App() {
 }
 ```
 
-Showing some data in the UI means we need to have it before loading the page. An advantage of using _React components_ over _functional components_ is we can override _lifecycle methods_. So the first change is tyransforming the _functional component_ into a _React component_
+To show some data in the UI, we need to have it before loading the page. An advantage of using _React components_ over _functional components_ is that we can override _lifecycle methods_. So the first change is transforming the _functional component_ into a _React component_.
 
 ```js
 import React, { Component } from 'react';
@@ -98,7 +98,7 @@ class App extends Component {
 }
 ```
 
-At this point we can fetch the data, and to do it before page loads completely we will override `componentDidMount()`
+At this point we can fetch the data, and to do it before the page loads completely we will override `componentDidMount()`.
 
 ```js
 class App extends Component {
@@ -120,11 +120,11 @@ class App extends Component {
 }
 ```
 
-Thanks to `console.log()` when we reload the website and having the developer tools opened we can see the result
+Thanks to `console.log()`, when we reload the website while having the developer tools opened, we can see the fetched result.
 
 ![Fetching data](./assets/developer-tools-array.gif)
 
-Last but not least, we structure the data into [bootstrap cards](https://react-bootstrap.netlify.com/components/cards/#cards)
+Finally, we structure the data the way we want. For this example I've used [bootstrap cards](https://react-bootstrap.netlify.com/components/cards/#cards):
 
 ```js
 import React, { Component, Fragment } from 'react'
