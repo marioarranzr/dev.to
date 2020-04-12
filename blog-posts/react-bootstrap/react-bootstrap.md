@@ -161,6 +161,8 @@ class App extends Component {
 
 ![Final version](./assets/final-version.png)
 
+[**Github source code**](https://github.com/marioarranzr/react-bootstrap/tree/v1)
+
 ---
 
 # Found a typo?
