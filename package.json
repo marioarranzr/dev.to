@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "dev-to-git": "1.1.0",
     "fs-extra": "^8.1.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "prettier": "^1.19.1",
     "yarn": "^1.22.0"
   }
